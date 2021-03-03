@@ -1,0 +1,16 @@
+<idea-plugin>
+  <id>io.haringsrob.hide-titlebar</id>
+  <name>Hide Title Bar</name>
+  <version>@version@</version>
+  <vendor email="haringsrob@gmail.com" url="https://github.com/haringsrob">haringsrob</vendor>
+
+  <idea-version since-build="201.6668.113"/>
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <application-components>
+    <component>
+      <implementation-class>io.haringsrob.hidetitlebar.HideTitleBar</implementation-class>
+    </component>
+  </application-components>
+</idea-plugin>
