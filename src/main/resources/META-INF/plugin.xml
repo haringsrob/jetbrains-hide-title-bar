@@ -6,6 +6,12 @@
 
   <idea-version since-build="201.6668.113"/>
 
+  <description><![CDATA[
+    This plugin removes the title bar from the ide windows.
+
+    Please note that this plugin might not work on Linux or Windows. So far it has only been tested on Mac.
+  ]]></description>
+
   <depends>com.intellij.modules.platform</depends>
 
   <application-components>
