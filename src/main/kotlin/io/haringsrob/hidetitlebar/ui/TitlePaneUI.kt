@@ -29,6 +29,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
 
   companion object {
     const val LOL_NOPE = "This should not be shown"
+    const val BLANK = " "
     private const val defaultPane = "com.sun.java.swing.plaf.windows.WindowsRootPaneUI"
     const val WINDOW_DARK_APPEARANCE = "jetbrains.awt.windowDarkAppearance"
     const val TRANSPARENT_TITLE_BAR_APPEARANCE = "jetbrains.awt.transparentTitleBarAppearance"
@@ -119,7 +120,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
     component: JComponent?,
     handleIsTransparent: (Boolean) -> () -> Unit
   ): ((Disposer) -> Unit) -> Unit {
-    return if (!isJavaVersionAtLeast(11)) {
+    return if (Runtime.version().feature() < 11) {
       { resolve ->
         resolve(handleIsTransparent(true))
       }
@@ -139,7 +140,7 @@ class TitlePaneUI : DarculaRootPaneUI() {
       is JDialog -> window.title
       is JFrame -> window.title
       else -> LOL_NOPE
-    }.ifEmpty {
-      " "
+    } ?: BLANK .ifEmpty {
+      BLANK
     }
 }
